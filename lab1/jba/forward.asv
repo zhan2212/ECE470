@@ -1,0 +1,5 @@
+function H = forward(joint, myrobot)
+H = myrobot.A(1:6, joint);
+H = [H.T, H.t];
+H = [H; 0 0 0 1];
+end

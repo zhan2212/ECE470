@@ -1,0 +1,9 @@
+function myrobot = mypuma560(DH)
+alpha = DH(:,4);
+a = DH(:,3)
+theta = DH(:,1)
+d = DH(:,2)
+myrobot = SerialLink([theta a ], 'name', 'puma560');
+
+
+

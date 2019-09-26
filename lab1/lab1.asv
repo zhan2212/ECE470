@@ -1,0 +1,29 @@
+theta1 = linspace(0,pi,200);
+theta2 = linspace(0,pi/2,200);
+theta3 = linspace(0,pi,200);
+theta4 = linspace(pi/4,3*pi/4,200);
+theta5 = linspace(-pi/3,pi/3,200);
+theta6 = linspace(0,2*pi,200);
+q = [theta1' theta2' theta3' theta4' theta5' theta6'];
+
+DH = @(theta1,theta2,theta3,theta4,theta5,theta6)[pi/2 0 theta1 76;
+    0 43.8 theta2 23.65;
+    pi/2 0 theta3 0;
+    -pi/2 0 theta4 43.18;
+    pi/2 0 theta5 0;
+    0 0 theta6 20];
+
+myrobot = mypuma560(DH(0,0,0,0,0,0));
+
+% for i = 1:200
+%     plot(myrobot,[theta1' theta2' theta3' theta4' theta5' theta6']);
+% end
+
+o = zeros(200,3);
+for i = 1:200
+    H = forward(q(i,:),myrobot);
+    o(i,:) = H(1:3,4)';
+    
+
+
+
