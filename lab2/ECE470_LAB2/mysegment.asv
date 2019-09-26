@@ -1,0 +1,9 @@
+function mysegment()
+X_workspace = zeros(3,100);
+X_workspace(1,:) = 620;
+X_workspace(2,:) = linspace(-100,100,100);
+X_workspace(3,:) = -1;
+
+X_baseframe = FrameTransformation(X_workspace);
+
+end

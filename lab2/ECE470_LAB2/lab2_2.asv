@@ -1,0 +1,9 @@
+
+%%
+delta = fminunc(@deltajoint,[0 0]);
+myrobot = mykuka_search(delta);
+
+%%
+X1=[644.06 -127.06 28.29]';
+H = [0 0 1 644.06; 0 -1 0 -127.06; 1 0 0; 0 0 0 1]
+q = inverse kuka(H,myrobot);

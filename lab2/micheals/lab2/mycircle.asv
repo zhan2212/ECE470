@@ -1,0 +1,17 @@
+function X_baseframe = mycircle()
+    % vertical pen orientation
+    R = [0 0 1; 0 -1 0; 1 0 0];                         
+
+    % generate a line parallel to y 
+    angles = linspace(0,
+    X_workspace = ones(3,100);
+    X_workspace(2,:) = linspace(-100,100,100);
+    X_workspace(1,:) = X_workspace(1,:)*620;
+    X_workspace(3,:) = X_workspace(3,:)*2;
+
+    % transform every col of X_workspace into baseframe
+    X_baseframe = zeros(3,100);
+    for i = 1:size(X_workspace,2)
+        X_baseframe(:,i) = FrameTransformation(X_workspace(:,i));
+    end
+end
